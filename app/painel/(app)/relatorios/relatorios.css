@@ -1,0 +1,23 @@
+/* Relatórios. Prefixo .rel- */
+.rel-filtros { align-items: end; }
+.rel-filtros .campo { min-width: 150px; flex: 0 1 170px; }
+.rel-atalhos { margin: 0 0 0 auto; align-self: center; }
+.pn-numero b.rel-dinheiro { font-size: 21px; font-variant-numeric: tabular-nums; }
+.rel-tabelas { display: grid; gap: 14px; }
+.rel-tabelas .pn-cartao + .pn-cartao { margin-top: 0; }
+.rel-tabela th.rel-dir, .rel-tabela td.rel-dir { text-align: right; }
+.rel-tabela td:first-child { font-weight: 600; color: var(--branco); }
+.rel-valor { min-width: 170px; display: grid; gap: 6px; }
+.rel-barra { display: block; height: 6px; border-radius: 999px; background: rgb(255 255 255 / 0.06); overflow: hidden; }
+.rel-barra > span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--violeta), var(--magenta)); }
+.rel-nota { margin-top: 14px; color: var(--texto-2); font-size: 12.5px; }
+
+@media (max-width: 860px) {
+  .rel-atalhos { margin-left: 0; flex-basis: 100%; }
+}
+@media (max-width: 520px) {
+  .rel-filtros .campo { flex: 1 1 130px; min-width: 0; }
+  .rel-filtros .botao { flex: 1 1 100%; }
+  .rel-tabela th, .rel-tabela td { padding: 10px 8px; }
+  .pn-numero b.rel-dinheiro { font-size: 18px; }
+}

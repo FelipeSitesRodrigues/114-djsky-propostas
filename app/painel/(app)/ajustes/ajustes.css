@@ -1,0 +1,48 @@
+/* Ajustes: configurações gerais, regras de desconto, textos por tipo e usuários. Prefixo .aj- */
+.aj { display: grid; gap: 14px; }
+.aj .pn-cartao + .pn-cartao { margin-top: 0; }
+.aj-campos { border: 0; padding: 0; min-width: 0; }
+.aj-campos:disabled .entrada { opacity: 0.8; cursor: default; }
+.aj-campos:disabled .pn-capas button { cursor: default; }
+.aj-ajuda { color: var(--texto-2); font-size: 13.5px; margin: -6px 0 16px; }
+.aj-ajuda b { color: var(--texto); font-weight: 600; }
+.aj-rodape { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 18px; }
+.aj-rodape > .aviso, .aj-rodape > span:empty { margin-right: auto; }
+.aj-rodape .aviso { padding: 8px 12px; }
+
+/* regras de desconto */
+.aj-regras { display: grid; gap: 8px; }
+.aj-regra { display: grid; grid-template-columns: minmax(0, 1fr) 120px 36px; gap: 8px; align-items: center; }
+.aj-regra__pct { position: relative; }
+.aj-regra__pct .entrada { padding-right: 32px; text-align: right; font-variant-numeric: tabular-nums; }
+.aj-regra__pct b { position: absolute; right: 14px; top: 50%; translate: 0 -50%; color: var(--texto-2); font-weight: 600; pointer-events: none; }
+
+/* tipos de evento */
+.aj-tipos { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.aj-tipos button { padding: 7px 13px; border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--texto); background: rgb(255 255 255 / 0.04); box-shadow: inset 0 0 0 1px var(--linha); transition: background 0.2s, color 0.2s; }
+.aj-tipos button:hover { color: var(--branco); }
+.aj-tipos button[aria-pressed="true"] { color: #fff; background: rgb(231 34 132 / 0.16); box-shadow: inset 0 0 0 1px rgb(231 34 132 / 0.35); }
+
+/* usuários */
+.aj-usuarios { display: grid; gap: 8px; }
+.aj-usuario { display: grid; grid-template-columns: minmax(0, 1fr) 180px 84px 112px; gap: 10px; align-items: center; padding: 10px 12px; border-radius: 14px; background: rgb(255 255 255 / 0.025); box-shadow: inset 0 0 0 1px var(--linha); }
+.aj-usuario[data-inativo] .aj-usuario__quem { opacity: 0.55; }
+.aj-usuario__quem { min-width: 0; }
+.aj-usuario__quem b { display: flex; align-items: center; gap: 8px; }
+.aj-usuario__quem .pn-sub { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.aj-usuario__papel .entrada { min-height: 38px; padding: 6px 36px 6px 12px; font-size: 14px; }
+.aj-voce { padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600; color: var(--magenta-claro); background: rgb(231 34 132 / 0.14); }
+.aj-ativo { color: var(--verde); background: rgb(74 222 128 / 0.1); }
+.aj-inativo { color: #a8a3b3; }
+.aj-janela-acoes { justify-content: flex-end; }
+
+@media (max-width: 860px) {
+  .aj-usuario { grid-template-columns: minmax(0, 1fr) auto auto; }
+  .aj-usuario__quem { grid-column: 1 / -1; }
+}
+@media (max-width: 520px) {
+  .aj-regra { grid-template-columns: minmax(0, 1fr) 92px 36px; }
+  .aj-usuario__papel { grid-column: 1 / -1; }
+  .aj-usuario .pn-status { justify-self: start; }
+  .aj-rodape .botao--magenta { width: 100%; }
+}

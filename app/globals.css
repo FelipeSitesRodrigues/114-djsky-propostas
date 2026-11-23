@@ -1,0 +1,188 @@
+/* Sistema de propostas do Sky: mesma identidade do site (sites/0114-dj-sky/src/css/_base.css).
+   Preto noite, magenta do logo como acento, lima raro, violeta só como luz. Archivo larga nos
+   títulos, Inter no resto, vidro leve. */
+@font-face { font-family: "Archivo"; src: url(/fonts/archivo-var.woff2) format("woff2"); font-weight: 500 800; font-stretch: 112% 125%; font-display: swap; }
+@font-face { font-family: "Inter"; src: url(/fonts/inter-var.woff2) format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Archivo fallback"; src: local("Arial Black"), local("Arial"); size-adjust: 112%; ascent-override: 84%; descent-override: 22%; line-gap-override: 0%; }
+@font-face { font-family: "Inter fallback"; src: local("Arial"); size-adjust: 107%; ascent-override: 90%; descent-override: 22%; line-gap-override: 0%; }
+
+:root {
+  color-scheme: dark;
+  --noite: #08070b;
+  --grafite: #121017;
+  --card: #16131c;
+  --card-2: #1d1925;
+  --magenta: #e72284;
+  --magenta-claro: #ff6fb5;
+  --violeta: #5b3896;
+  --lilas: #8268c9;
+  --lima: #dadb00;
+  --branco: #f5f3f7;
+  --texto: rgb(245 243 247 / 0.72);
+  --texto-2: rgb(245 243 247 / 0.5);
+  --linha: rgb(255 255 255 / 0.08);
+  --linha-2: rgb(255 255 255 / 0.14);
+  --verde: #4ade80;
+  --amarelo: #facc15;
+  --vermelho: #f87171;
+  --fonte: "Inter", "Inter fallback", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --fonte-display: "Archivo", "Archivo fallback", "Arial Black", Arial, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --raio: 22px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--noite); }
+body {
+  min-height: 100dvh;
+  background: var(--noite);
+  color: var(--branco);
+  font: 400 15px/1.55 var(--fonte);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+img, svg, video { display: block; max-width: 100%; }
+img { height: auto; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; padding: 0; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+input, select, textarea { font: inherit; color: inherit; }
+h1, h2, h3, h4 { font-family: var(--fonte-display); font-weight: 800; font-stretch: 125%; line-height: 1.05; text-wrap: balance; }
+p { text-wrap: pretty; }
+::selection { background: var(--magenta); color: #fff; }
+:focus-visible { outline: 2px solid var(--magenta-claro); outline-offset: 3px; border-radius: 6px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.m { color: var(--magenta); }
+.i { width: 1.1em; height: 1.1em; flex: none; }
+
+.rotulo {
+  display: block;
+  font-family: var(--fonte-display);
+  font-stretch: 125%;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--texto-2);
+}
+
+/* ---------------------------------------------------------------- botões: vidro leve */
+.botao {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  font-family: var(--fonte-display);
+  font-stretch: 112%;
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--branco);
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.1), rgb(255 255 255 / 0.03));
+  box-shadow: inset 0 0 0 1px var(--linha-2), inset 0 1px 0 rgb(255 255 255 / 0.12);
+  transition: background 0.25s var(--ease), transform 0.25s var(--ease), opacity 0.2s;
+}
+.botao:hover { background: linear-gradient(180deg, rgb(255 255 255 / 0.16), rgb(255 255 255 / 0.06)); }
+.botao:active { transform: scale(0.98); }
+.botao:disabled { opacity: 0.45; cursor: not-allowed; }
+.botao--magenta {
+  background: linear-gradient(180deg, rgb(231 34 132 / 0.95), rgb(190 20 105 / 0.95));
+  box-shadow: inset 0 0 0 1px rgb(255 140 195 / 0.45), inset 0 1px 0 rgb(255 255 255 / 0.3), 0 10px 30px -12px rgb(231 34 132 / 0.7);
+}
+.botao--magenta:hover { background: linear-gradient(180deg, #f0388f, #c81a70); }
+.botao--perigo { color: #fecaca; box-shadow: inset 0 0 0 1px rgb(248 113 113 / 0.4); }
+.botao--sm { min-height: 34px; padding: 0 14px; font-size: 11px; }
+.botao--grande { min-height: 58px; padding: 0 34px; font-size: 14px; }
+.botao--bloco { width: 100%; }
+.botao--texto { min-height: 0; padding: 0; background: none; box-shadow: none; color: var(--magenta-claro); text-transform: none; letter-spacing: 0; font-family: var(--fonte); font-weight: 600; font-size: 14px; }
+.botao--texto:hover { background: none; text-decoration: underline; }
+
+/* ---------------------------------------------------------------- campos */
+.campo { display: grid; gap: 6px; min-width: 0; }
+.campo > span, .campo > legend { font-size: 12.5px; font-weight: 600; color: var(--texto); }
+.campo small { color: var(--texto-2); font-size: 12px; }
+.entrada {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--linha-2);
+  background: rgb(255 255 255 / 0.035);
+  color: var(--branco);
+  font-size: 15px;
+  transition: border-color 0.2s, background 0.2s;
+}
+.entrada::placeholder { color: rgb(245 243 247 / 0.32); }
+.entrada:focus { outline: none; border-color: var(--magenta); background: rgb(231 34 132 / 0.06); }
+.entrada[aria-invalid="true"] { border-color: var(--vermelho); }
+textarea.entrada { min-height: 88px; resize: vertical; line-height: 1.5; }
+select.entrada { appearance: none; padding-right: 36px; background-image: linear-gradient(45deg, transparent 50%, var(--texto) 50%), linear-gradient(135deg, var(--texto) 50%, transparent 50%); background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%; background-size: 5px 5px; background-repeat: no-repeat; }
+select.entrada option { background: var(--grafite); }
+.erro-campo { color: var(--vermelho); font-size: 12.5px; }
+
+.aviso { padding: 12px 14px; border-radius: 12px; font-size: 14px; border: 1px solid var(--linha-2); background: rgb(255 255 255 / 0.04); }
+.aviso--erro { border-color: rgb(248 113 113 / 0.4); background: rgb(248 113 113 / 0.08); color: #fecaca; }
+.aviso--ok { border-color: rgb(74 222 128 / 0.35); background: rgb(74 222 128 / 0.08); color: #bbf7d0; }
+.aviso--alerta { border-color: rgb(250 204 21 / 0.35); background: rgb(250 204 21 / 0.07); color: #fef08a; }
+
+.girando { width: 18px; height: 18px; border-radius: 50%; border: 2px solid rgb(255 255 255 / 0.3); border-top-color: #fff; animation: girar 0.8s linear infinite; }
+@keyframes girar { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* ---------------------------------------------------------------- seletor de data em vidro
+   Vidro claro sobre o painel escuro: branco translúcido com desfoque, borda de luz no alto e o
+   rosa do Sky no dia escolhido. Dias antes do mínimo ficam apagados e não clicam. */
+.dv { position: relative; min-width: 0; }
+.dv-campo { display: flex; align-items: center; justify-content: space-between; gap: 10px; text-align: left; cursor: pointer; }
+.dv-campo svg { width: 18px; height: 18px; flex: none; color: var(--magenta-claro); }
+.dv-campo--aberto { border-color: rgb(255 111 181 / 0.7); background: rgb(231 34 132 / 0.07); }
+.dv-vazio { color: rgb(245 243 247 / 0.32); }
+.dv-pop {
+  position: fixed; z-index: 200;
+  width: 304px; max-width: calc(100vw - 32px); padding: 16px 14px 12px; border-radius: 24px;
+  color: #fff;
+  background:
+    radial-gradient(120% 70% at 100% 0%, rgb(255 111 181 / 0.32), transparent 60%),
+    radial-gradient(90% 60% at 0% 100%, rgb(231 34 132 / 0.18), transparent 65%),
+    linear-gradient(160deg, rgb(255 255 255 / 0.2), rgb(255 255 255 / 0.06)),
+    rgb(30 22 38 / 0.78);
+  -webkit-backdrop-filter: blur(26px) saturate(1.6); backdrop-filter: blur(26px) saturate(1.6);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.28), inset 0 1.5px 0 rgb(255 255 255 / 0.55), inset 0 -10px 30px -18px rgb(255 255 255 / 0.4), 0 30px 70px -18px rgb(0 0 0 / 0.75), 0 0 60px -20px rgb(231 34 132 / 0.6);
+  animation: dv-abre 0.28s var(--ease) both;
+  transform-origin: 20% 0;
+}
+@keyframes dv-abre { from { opacity: 0; transform: translateY(-6px) scale(0.97); } }
+.dv-topo { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+.dv-topo strong { font-family: var(--fonte-display); font-stretch: 112%; font-weight: 700; font-size: 15px; text-transform: capitalize; letter-spacing: 0.01em; }
+.dv-topo strong span { color: #ffc2df; font-weight: 600; }
+.dv-seta { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: rgb(255 255 255 / 0.12); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.22), inset 0 1px 0 rgb(255 255 255 / 0.35); transition: background 0.2s; }
+.dv-seta svg { width: 16px; height: 16px; }
+.dv-seta:hover:not(:disabled) { background: rgb(255 255 255 / 0.24); }
+.dv-seta:disabled { opacity: 0.3; cursor: not-allowed; }
+.dv-semana, .dv-grade { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.dv-semana span { text-align: center; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: rgb(255 255 255 / 0.6); padding-bottom: 6px; }
+.dv-dia { aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; font-size: 14px; font-weight: 500; color: #fff; transition: background 0.18s, transform 0.18s var(--ease); }
+.dv-dia:hover:not(:disabled) { background: rgb(255 255 255 / 0.2); }
+.dv-dia:focus-visible { outline: 2px solid #fff; outline-offset: -2px; border-radius: 50%; }
+.dv-dia--hoje { box-shadow: inset 0 0 0 1.5px rgb(255 255 255 / 0.75); font-weight: 700; }
+.dv-dia--sel, .dv-dia--sel:hover:not(:disabled) { background: linear-gradient(180deg, #ff5fae, var(--magenta)); font-weight: 700; box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 6px 18px -4px rgb(231 34 132 / 0.9); transform: scale(1.04); }
+.dv-dia:disabled { color: rgb(255 255 255 / 0.22); cursor: not-allowed; text-decoration: line-through; text-decoration-color: rgb(255 255 255 / 0.18); }
+.dv-base { display: flex; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 1px solid rgb(255 255 255 / 0.16); }
+.dv-base button { padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 600; color: rgb(255 255 255 / 0.8); }
+.dv-base button:hover:not(:disabled) { background: rgb(255 255 255 / 0.14); color: #fff; }
+.dv-base .dv-hoje { color: #ffc2df; }
+.dv-base button:disabled { opacity: 0.35; }
+@media (prefers-reduced-motion: reduce) { .dv-pop { animation: none; } }
+.dv-pop--acima { transform: translateY(-100%); transform-origin: 20% 100%; animation-name: dv-abre-acima; }
+@keyframes dv-abre-acima { from { opacity: 0; transform: translateY(calc(-100% + 6px)) scale(0.97); } }

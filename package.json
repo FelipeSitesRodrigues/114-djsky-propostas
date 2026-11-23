@@ -1,0 +1,34 @@
+{
+  "name": "sky-propostas",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev -p 3416",
+    "build": "next build",
+    "start": "next start -p 3416",
+    "lint": "eslint",
+    "teste": "node --test lib/proposta/logica.test.ts lib/seguranca/cifra.test.ts",
+    "sql": "node scripts/sql.mjs",
+    "migrar": "node scripts/migrar.mjs",
+    "usuario": "node --env-file=.env.local scripts/criar-usuario.mjs",
+    "semente": "node --env-file=.env.local scripts/semente.mjs"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.119.0",
+    "next": "16.4.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.6",
+    "puppeteer-core": "^24.0.0",
+    "typescript": "^5"
+  }
+}

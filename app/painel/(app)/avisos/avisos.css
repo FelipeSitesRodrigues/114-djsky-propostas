@@ -1,0 +1,18 @@
+/* Avisos do painel. Prefixo .av- */
+.av-lista { display: grid; gap: 8px; }
+.av-item { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; padding: 14px 16px; border-radius: 16px; background: var(--grafite); box-shadow: inset 0 0 0 1px var(--linha); }
+.av-item[data-nao-lido] { background: radial-gradient(90% 140% at 0% 0%, rgb(231 34 132 / 0.14), transparent 60%), var(--grafite); box-shadow: inset 0 0 0 1px rgb(231 34 132 / 0.3); }
+.av-item__corpo { flex: 1 1 320px; min-width: 0; display: grid; gap: 4px; }
+.av-item__topo { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; }
+.av-item__topo b { font-weight: 600; }
+.av-item:not([data-nao-lido]) .av-item__topo b { color: var(--texto); }
+.av-item__topo time { color: var(--texto-2); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.av-item__corpo p { color: var(--texto); font-size: 14px; }
+.av-ponto { width: 8px; height: 8px; border-radius: 50%; background: var(--magenta); align-self: center; flex: none; }
+.av-item__acoes { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.av-erro { flex-basis: 100%; padding: 8px 12px; }
+
+@media (max-width: 520px) {
+  .av-item { padding: 14px; }
+  .av-item__corpo { flex-basis: 100%; }
+}
