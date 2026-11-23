@@ -43,3 +43,6 @@ next-env.d.ts
 # chaves do Supabase do Sky
 .env.supabase.local
 revisao/*.png
+
+.vercel
+.env*
