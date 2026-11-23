@@ -4,7 +4,7 @@
 //   node --env-file=.env.senha.local revisao/e2e.mjs
 import puppeteer from 'puppeteer-core';
 
-const URL = 'http://localhost:3416';
+const URL = process.env.BASE ?? 'http://localhost:3416';
 const espera = (ms) => new Promise((r) => setTimeout(r, ms));
 const b = await puppeteer.launch({ executablePath: 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe', headless: 'new' });
 const erros = [];

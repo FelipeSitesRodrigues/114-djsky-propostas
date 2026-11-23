@@ -4,7 +4,7 @@
 import puppeteer from 'puppeteer-core';
 
 const porta = process.argv[2] ?? '3416';
-const URL = `http://localhost:${porta}`;
+const URL = porta.startsWith('http') ? porta : `http://localhost:${porta}`;
 const b = await puppeteer.launch({ executablePath: 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe', headless: 'new' });
 const p = await b.newPage();
 p.setDefaultNavigationTimeout(150000);

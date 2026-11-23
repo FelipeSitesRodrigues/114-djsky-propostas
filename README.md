@@ -28,7 +28,12 @@ dados de contrato já recebidos não abrem mais.
 
 ## Publicar (Vercel)
 
-Variáveis: as seis do `.env.local`, com `SITE_URL=https://propostas.sigasky.com.br`.
+No ar em https://sky-propostas.vercel.app (projeto `sky-propostas` na Vercel do Felipe, ligado ao
+GitHub `FelipeSitesRodrigues/114-djsky-propostas`: cada push na `main` publica). O repositório é
+público: nada de `.env*` no commit.
+
+Variáveis: as seis do `.env.local` (já cadastradas). `SITE_URL` está como o endereço da Vercel; quando o
+domínio entrar, trocar pra `https://propostas.sigasky.com.br`.
 Opcional: `RESEND_API_KEY` e `AVISO_REMETENTE` pro e-mail de aceite. O `vercel.json` roda um cron
 diário que marca vencidas e mantém o Supabase Free acordado. Domínio: CNAME de `propostas` no DNS
 do `sigasky.com.br` apontando pra Vercel.
@@ -39,3 +44,5 @@ do `sigasky.com.br` apontando pra Vercel.
   R$ 6.000 com 50% = R$ 3.000, aceite com CPF, ficha no painel). Cria dados: apagar depois.
 - `revisao/e2e-2.mjs`: vencida, usuário comercial, versão nova depois do aceite.
 - `revisao/telas.mjs`: print de cada tela em 1440 e 390 e aviso de estouro de largura.
+- `revisao/velocidade.mjs <porta ou URL>`: tempo de cada clique no menu até a tela aparecer.
+- `BASE=https://sky-propostas.vercel.app` antes do `e2e.mjs` roda o teste no ar.
